@@ -1,7 +1,15 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input (A=0, C=1, T=2, G=3)
     BufferedReader br = new BufferedReader(new FileReader("cownomics.in"));

@@ -1,6 +1,14 @@
 import java.util.Stack;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) {
 
     // example 1: fill a selected region of a painting with a new color (recursive method)
@@ -54,7 +62,7 @@ class Main {
 
     // check we haven't already visited this pixel
      if (visited[x][y]) return;
-     
+
      // mark this pixel as visited
      visited[x][y] = true;
 
@@ -72,7 +80,7 @@ class Main {
      fillRecursive(painting, visited, x, y+1, oldColor, newColor);
   }
 
-  public static int[][] floodfill(int[][] painting, int xStart, int yStart, int newColor) {  
+  public static int[][] floodfill(int[][] painting, int xStart, int yStart, int newColor) {
     int n = painting.length;
     int m = painting[0].length;
     boolean[][] visited = new boolean[n][m];

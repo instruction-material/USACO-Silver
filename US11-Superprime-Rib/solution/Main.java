@@ -8,6 +8,11 @@ import java.io.*;
 import java.util.*;
 
 class sprime {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("sprime.in"));

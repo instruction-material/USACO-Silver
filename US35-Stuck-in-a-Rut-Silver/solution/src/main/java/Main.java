@@ -1,12 +1,20 @@
-//Adapted from USACO 
+//Adapted from USACO
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 public class Main {
 
+    /**
+     * @brief Read input, compute the answer, and write output
+     *
+     * @param args Command-line arguments
+     */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         List<Integer> eastCows = new ArrayList<>();

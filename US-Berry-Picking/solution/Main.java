@@ -3,7 +3,15 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("berries.in"));
@@ -19,7 +27,7 @@ class Main {
     }
 
     Arrays.sort(trees);
-    
+
     br.close();
 
     // in this problem, we have K baskets and we can put any number of berries from a single tree into each basket. Elsie gets the K/2 largest baskets, and Bessie gets the rest. we are calculating the maximum number of berries Bessie can get.

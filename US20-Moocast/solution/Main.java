@@ -3,7 +3,15 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
 
     // read input
@@ -16,7 +24,7 @@ class Main {
       int x = Integer.parseInt(st.nextToken());
       int y = Integer.parseInt(st.nextToken());
       int p = Integer.parseInt(st.nextToken());
-      
+
       cows[i] = new Cow(x,y,p,i);
     }
 
@@ -55,7 +63,7 @@ class Main {
     Queue<Cow> q = new LinkedList<Cow>();
     q.add(root);
     boolean[] visited = new boolean[numCows];
-    
+
     while (!q.isEmpty()) {
       Cow c = q.remove();
       numReached++;
@@ -86,7 +94,7 @@ class Cow {
     this.id = id;
     this.reachableCows = new ArrayList<Cow>();
   }
-  
+
   public String toString() {
     return x + ", " + y + ", " + power;
   }

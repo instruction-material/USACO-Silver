@@ -3,7 +3,15 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("pairup.in"));
@@ -28,7 +36,7 @@ class Main {
           return milkAmt.compareTo(milkAmt2);
       }
     });
-    
+
     // match up pairs, starting from the smallest and greatest production
 
     int startIndex = 0;

@@ -7,7 +7,15 @@ TASK: hamming
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("hamming.in"));
@@ -24,7 +32,7 @@ class Main {
     while (codewords.size() < numCodewords) {
       // compare this codeword to all of the other codewords to check if it's more than dist away from all of them
       String codewordStr = Integer.toBinaryString(codeword);
-     
+
       boolean meetsCriteria = true;
       for (int num: codewords) {
         String codewordStr2 = Integer.toBinaryString(num);
@@ -65,7 +73,7 @@ class Main {
     // print output
     PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(
     "hamming.out")));
-    
+
     for (int i = 0; i < codewords.size(); i++) {
       if (i % 10 == 0 && i != 0) {
         out.print("\n");

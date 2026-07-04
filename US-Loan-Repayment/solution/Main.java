@@ -3,16 +3,24 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
   static long N;
   static long K;
   static long M;
 
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("loan.in"));
     StringTokenizer st = new StringTokenizer(br.readLine());
-    
+
     // N = number gallons of milk
     // K = number of days within repayment must happen
     // M = min gallons per day to repay

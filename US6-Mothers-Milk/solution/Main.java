@@ -8,6 +8,11 @@ import java.io.*;
 import java.util.*;
 
 class milk3 {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("milk3.in"));
@@ -53,7 +58,7 @@ class milk3 {
 
     // sort the answer list
     Collections.sort(answer);
-    
+
     // write output
     PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("milk3.out")));
 

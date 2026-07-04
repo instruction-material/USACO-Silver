@@ -3,11 +3,19 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
   static ArrayList<int[]>[] edges;
   static int[] component;
   static int[] positions;
 
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("wormsort.in"));
@@ -28,7 +36,7 @@ class Main {
     for (int i = 0; i < N; i++) {
       edges[i] = new ArrayList<int[]>();
     }
-    
+
     for (int i = 0; i < M; i++) {
       st = new StringTokenizer(br.readLine());
       int a = Integer.parseInt(st.nextToken())-1;

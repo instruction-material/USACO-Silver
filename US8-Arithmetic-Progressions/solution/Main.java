@@ -7,7 +7,15 @@ TASK: ariprog
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     BufferedReader in = new BufferedReader(new FileReader("ariprog.in"));
     int n = Integer.parseInt(in.readLine());
@@ -60,7 +68,7 @@ class Main {
 
     PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(
     "ariprog.out")));
-    
+
     if (result.size() == 0) {
       out.println("NONE");
     } else {

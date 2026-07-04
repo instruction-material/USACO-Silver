@@ -2,7 +2,15 @@ import java.io.*;
 import java.util.*;
 import java.lang.Object;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("rental.in"));
@@ -10,7 +18,7 @@ class Main {
 		int N = Integer.parseInt(st.nextToken());
     int M = Integer.parseInt(st.nextToken());
     int R = Integer.parseInt(st.nextToken());
-    
+
     int[] cows = new int[N];
     for (int i = 0; i < N; i++) {
       cows[i] = Integer.parseInt(br.readLine());

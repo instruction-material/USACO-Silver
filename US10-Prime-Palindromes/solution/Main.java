@@ -8,6 +8,11 @@ import java.io.*;
 import java.util.*;
 
 class pprime {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("pprime.in"));
@@ -72,7 +77,7 @@ class pprime {
       for (int a = 1; a <= 9; a+=2) {
         for (int b = 0; b <= 9; b++) {
           for (int c = 0; c <= 9; c++) {
-            int num = Integer.parseInt(Integer.toString(a) + Integer.toString(b) + 
+            int num = Integer.parseInt(Integer.toString(a) + Integer.toString(b) +
             Integer.toString(c) + Integer.toString(b) + Integer.toString(a));
             answer.add(num);
           }
@@ -95,7 +100,7 @@ class pprime {
               int num = Integer.parseInt(Integer.toString(a) + Integer.toString(b) + Integer.toString(c) + Integer.toString(d) + Integer.toString(c) + Integer.toString(b) + Integer.toString(a));
               answer.add(num);
             }
-            
+
           }
         }
       }
@@ -107,7 +112,7 @@ class pprime {
               int num = Integer.parseInt(Integer.toString(a) + Integer.toString(b) + Integer.toString(c) + Integer.toString(d) + Integer.toString(d) +  Integer.toString(c) + Integer.toString(b) + Integer.toString(a));
               answer.add(num);
             }
-            
+
           }
         }
       }

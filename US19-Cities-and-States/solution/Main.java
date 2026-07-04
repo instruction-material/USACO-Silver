@@ -3,7 +3,15 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // for a given city-state pair, count the number of city pairs where the first two letters of the city = the other city's state abbreviation, and vice versa (they must come from different states)
 
@@ -21,7 +29,7 @@ class Main {
       String state = st.nextToken();
 
       // pairs can't be in the same state, so don't add city-state pairs where the first two letters of the city are the same as the first two letters of the state
-      
+
       String cityFirstTwo = city.substring(0,2);
 
       if (!cityFirstTwo.equals(state)) {

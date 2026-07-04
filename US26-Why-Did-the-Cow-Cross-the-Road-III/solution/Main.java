@@ -2,7 +2,15 @@ import java.io.*;
 import java.util.*;
 import java.awt.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("countcross.in"));
@@ -21,7 +29,7 @@ class Main {
       int y1 = Integer.parseInt(st.nextToken())-1;
       int x2 = Integer.parseInt(st.nextToken())-1;
       int y2 = Integer.parseInt(st.nextToken())-1;
-      
+
       int dx = x2-x1;
       int dy = y2-y1;
 

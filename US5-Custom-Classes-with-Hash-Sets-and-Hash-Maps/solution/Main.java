@@ -1,6 +1,14 @@
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) {
     Student s1 = new Student("Frank", "Ocean", 10);
     Student s2 = new Student("Janelle", "Monae", 12);
@@ -27,7 +35,7 @@ class Main {
     // .equals() will return true when comparing s7 and s3, so the s7-"Airplane School" key-value pair will replace the s3-"The Curious School" pair
     studentToSchoolMap.put(s7, "Airplane School");
     System.out.println(studentToSchoolMap);
-    
+
     studentToSchoolMap.put(s4, "Distraction School");
     studentToSchoolMap.put(s5, "Truth Hurts School");
     // Similarly, because .equals() will return true when comparing s6 and s7, they are treated as the same key, and this will replace the s7-"Airplane School" key-value pair;
@@ -60,7 +68,7 @@ class Student {
         // lastName.equals(other.lastName) &&
         grade == other.grade;
   }
-  
+
   @Override
   public int hashCode() {
     return Objects.hash(firstName, grade);

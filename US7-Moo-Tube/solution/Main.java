@@ -3,7 +3,15 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input (n and q)
     BufferedReader br = new BufferedReader(new FileReader("mootube.in"));
@@ -17,14 +25,14 @@ class Main {
       Video v = new Video(i);
       videos[i] = v;
     }
-    
+
     // read input (all connections)
     for (int i = 0; i < n-1; i++) {
       st = new StringTokenizer(br.readLine());
 			int video1 = Integer.parseInt(st.nextToken());
 			int video2 = Integer.parseInt(st.nextToken());
 			int r = Integer.parseInt(st.nextToken());
-      
+
       // add Connection to video1
       Connection c1 = new Connection(video2-1, r);
       videos[video1-1].connections.add(c1);

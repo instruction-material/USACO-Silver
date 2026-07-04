@@ -7,7 +7,15 @@ TASK: holstein
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("holstein.in"));
@@ -25,7 +33,7 @@ class Main {
       st = new StringTokenizer(br.readLine());
       for (int j = 0; j < V; j++) {
         vitaminContents[i][j] = Integer.parseInt(st.nextToken());
-      }    
+      }
     }
 
     // try every combination of feeds
@@ -36,7 +44,7 @@ class Main {
     }
     ArrayList<int[]> combos = new ArrayList<int[]>();
     recur(feedAmt, vitaminNeeds, vitaminContents, combos);
-    
+
     // sort combos
     Collections.sort(combos, new Comparator<int[]>() {
       public int compare(int[] c1, int[] c2) {
@@ -80,7 +88,7 @@ class Main {
     }
     PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(
     "holstein.out")));
-    
+
     out.print(numFeeds);
     for (int i = 0; i < bestCombo.length; i++) {
       if (bestCombo[i] == 1) {

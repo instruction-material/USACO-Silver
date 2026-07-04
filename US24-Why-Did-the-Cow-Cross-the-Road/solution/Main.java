@@ -1,7 +1,15 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("helpcross.in"));
@@ -9,7 +17,7 @@ class Main {
 		int numChickens = Integer.parseInt(st.nextToken());
     int numCows = Integer.parseInt(st.nextToken());
     Animal[] animals = new Animal[numChickens+numCows];
-    
+
     int[] chickens = new int[numChickens];
     for (int i = 0; i < numChickens; i++) {
       int time = Integer.parseInt(br.readLine());

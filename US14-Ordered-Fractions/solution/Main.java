@@ -7,7 +7,15 @@ TASK: frac1
 import java.io.*;
 import java.util.*;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 class Main {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("frac1.in"));
@@ -27,7 +35,7 @@ class Main {
 
     // sort array
     Collections.sort(res);
-    
+
     // write output
     PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(
     "frac1.out")));
@@ -62,7 +70,7 @@ class Main {
 class Fraction implements Comparable<Fraction> {
   public int numerator;
   public int denominator;
-  
+
   public Fraction (int numer, int denom) {
     numerator = numer;
     denominator = denom;

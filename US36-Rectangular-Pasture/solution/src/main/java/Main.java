@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
+/**
+ * @brief Solve the lesson problem using the provided input and output format
+ */
 public class Main {
     static int[][] sums;
 
@@ -11,6 +14,11 @@ public class Main {
         return sums[toX][toY] - sums[fromX - 1][toY] - sums[toX][fromY - 1] + sums[fromX - 1][fromY - 1];
     }
 
+    /**
+     * @brief Read input, compute the answer, and write output
+     *
+     * @param args Command-line arguments
+     */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();

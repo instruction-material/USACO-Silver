@@ -8,13 +8,18 @@ import java.io.*;
 import java.util.*;
 
 class castle {
+  /**
+   * @brief Read input, compute the answer, and write output
+   *
+   * @param args Command-line arguments
+   */
   public static void main(String[] args) throws IOException {
     // read input
     BufferedReader br = new BufferedReader(new FileReader("castle.in"));
     StringTokenizer st = new StringTokenizer(br.readLine());
     int m = Integer.parseInt(st.nextToken());
     int n = Integer.parseInt(st.nextToken());
-    
+
     int[][] castle = new int[n][m];
     Set<String>[][] allWalls = new HashSet[n][m];
     for (int i = 0; i < n; i++) {
@@ -37,15 +42,15 @@ class castle {
           maxRoomSize = Math.max(maxRoomSize, roomSize);
           numRooms++;
         }
-      }   
+      }
     }
- 
+
     int wallRemovedX = 0, wallRemovedY = 0;
     String wallDir = null;
     int maxMergedRoomSize = 0;
     // Loop through the rooms, west to east and bottom to top
     for (int j = 0; j < m; j++) {
-      for (int i = n - 1; i >= 0; i--) {   
+      for (int i = n - 1; i >= 0; i--) {
 
         // If the current room has a N wall, remove it and see how large the combined room will be
         if (allWalls[i][j].contains("N")) {
@@ -61,7 +66,7 @@ class castle {
           }
 
           allWalls[i][j].add("N");
-        } 
+        }
 
         // If the current room has an E wall, remove it and see how large the combined room will be
         if (allWalls[i][j].contains("E")) {
@@ -80,7 +85,7 @@ class castle {
         }
       }
     }
-    
+
     // write output:
     // 1. number of rooms
     // 2. size of largest room
@@ -151,17 +156,17 @@ class castle {
 			wallDirections.add("S");
 			wallNum -= 8;
 		}
-		
+
 		if(wallNum >= 4) {
 			wallDirections.add("E");
 			wallNum -= 4;
 		}
-		
+
 		if(wallNum >= 2) {
 			wallDirections.add("N");
 			wallNum -= 2;
 		}
-		
+
 		if(wallNum >= 1) {
 			wallDirections.add("W");
 			wallNum--;
