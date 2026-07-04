@@ -1,70 +1,114 @@
-import java.util.*;
+import java.util.Stack;
 
+// Demonstrate depth-first traversal on a small binary tree
 class Main {
-  public static void main(String[] args) {
-    Node root = new Node(null, null, 0);
-    Node node1 = new Node(null, null, 1);
-    Node node2 = new Node(null, null, 2);
-    Node node1l = new Node(null, null, 3);
-    Node node1r = new Node(null, null, 4);
-    root.left = node1;
-    root.right = node2;
-    node1.left = node1l;
-    node1.right = node1r;
+    private static final int ROOT_VALUE = 0;
+    private static final int LEFT_CHILD_VALUE = 1;
+    private static final int RIGHT_CHILD_VALUE = 2;
+    private static final int LEFT_GRANDCHILD_VALUE = 3;
+    private static final int RIGHT_GRANDCHILD_VALUE = 4;
 
-    DFS(root);
-    // System.out.println(DFS2(root, 10));
-    // System.out.println(DFS2(root, 0));
-    // System.out.println(DFS2(root, 4));
-    // recursiveDFS(root);
+    /**
+     * @brief Build the sample tree and print a DFS traversal
+     *
+     * @param args Command-line arguments
+     */
+    public static void main(String[] args) {
+        Node root = new Node(null, null, ROOT_VALUE);
+        Node left_child = new Node(null, null, LEFT_CHILD_VALUE);
+        Node right_child = new Node(null, null, RIGHT_CHILD_VALUE);
+        Node left_grandchild = new Node(null, null, LEFT_GRANDCHILD_VALUE);
+        Node right_grandchild = new Node(null, null, RIGHT_GRANDCHILD_VALUE);
 
-    // DFS that simply prints each value along the way
-  }
+        root.left = left_child;
+        root.right = right_child;
+        left_child.left = left_grandchild;
+        left_child.right = right_grandchild;
 
-  public static void DFS(Node root) {
-    Stack<Node> s = new Stack<Node>();
-    s.push(root);
-    root.visited = true;
-    while (!s.isEmpty()) {
-      Node n = s.pop();
-      System.out.println(n.value);
-      for (Node child : n.getChildren()) {
-        if (child != null && !child.visited) {
-          child.visited = true;
-          s.push(child);
+        depthFirstSearch(root);
+        // System.out.println(containsWithDepthFirstSearch(root, 10))
+        // System.out.println(containsWithDepthFirstSearch(root, 0))
+        // System.out.println(containsWithDepthFirstSearch(root, 4))
+        // recursiveDepthFirstSearch(root)
+    }
+
+    /**
+     * @brief Print each tree value using iterative DFS
+     *
+     * @param root Starting node for the traversal
+     */
+    public static void depthFirstSearch(Node root) {
+        Stack<Node> node_stack = new Stack<Node>();
+        node_stack.push(root);
+        root.visited = true;
+
+        // Process nodes until the stack is empty
+        while (!node_stack.isEmpty()) {
+            Node current_node = node_stack.pop();
+            System.out.println(current_node.value);
+
+            // Visit each unvisited child node
+            for (Node child : current_node.getChildren()) {
+                // Skip null children and nodes already reached
+                if (child != null && !child.visited) {
+                    child.visited = true;
+                    node_stack.push(child);
+                }
+            }
         }
-      }
     }
-  }
 
-  // DFS that searches for a value
-  public static boolean DFS2(Node root, int target) {
-    Stack<Node> s = new Stack<Node>();
-    s.push(root);
-    root.visited = true;
-    while (!s.isEmpty()) {
-      Node n = s.pop();
-      if (n.value == target) {
-        return true;
-      }
-      for (Node child : n.getChildren()) {
-        if (child != null && !child.visited) {
-          child.visited = true;
-          s.push(child);
+    /**
+     * @brief Search a tree value using iterative DFS
+     *
+     * @param root Starting node for the traversal
+     *
+     * @param target Value to find
+     *
+     * @return True when the target value is found
+     */
+    public static boolean containsWithDepthFirstSearch(Node root, int target) {
+        Stack<Node> node_stack = new Stack<Node>();
+        node_stack.push(root);
+        root.visited = true;
+
+        // Process nodes until the stack is empty
+        while (!node_stack.isEmpty()) {
+            Node current_node = node_stack.pop();
+
+            // Return as soon as the target value is found
+            if (current_node.value == target) {
+                return true;
+            }
+
+            // Visit each unvisited child node
+            for (Node child : current_node.getChildren()) {
+                // Skip null children and nodes already reached
+                if (child != null && !child.visited) {
+                    child.visited = true;
+                    node_stack.push(child);
+                }
+            }
         }
-      }
-    }
-    return false;
-  }
 
-  // recursive DFS (note that this must be called on a fresh graph where nothing has been visited)
-  public static void recursiveDFS(Node n) {
-    System.out.println(n.value);
-    n.visited = true;
-    for (Node child : n.getChildren()) {
-      if (child != null && !child.visited) {
-        recursiveDFS(child);
-      }
+        return false;
     }
-  }
+
+    /**
+     * @brief Print each tree value using recursive DFS
+     *
+     * @param currentNode Node currently being visited
+     */
+    public static void recursiveDepthFirstSearch(Node currentNode) {
+        System.out.println(currentNode.value);
+        currentNode.visited = true;
+
+        // Recursively visit each unvisited child node
+        for (Node child : currentNode.getChildren()) {
+            // Skip null children and nodes already reached
+            if (child != null && !child.visited) {
+                recursiveDepthFirstSearch(child);
+            }
+        }
+    }
 }
