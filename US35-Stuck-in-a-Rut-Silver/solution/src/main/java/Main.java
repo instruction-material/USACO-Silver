@@ -37,7 +37,8 @@ public class Main {
         int[] amtStopped = new int[n];
         for (int j : eastCows) {
             for (int k : northCows) {
-                if (!isStopped[j] && !isStopped[k] && xs[k] > xs[j] && ys[j] > ys[k]) {
+                if (!isStopped[j] && !isStopped[k] && xs[k] > xs[j] &&
+                    ys[j] > ys[k]) {
                     if (xs[k] - xs[j] > ys[j] - ys[k]) {
                         isStopped[j] = true;
                         amtStopped[k] += 1 + amtStopped[j];

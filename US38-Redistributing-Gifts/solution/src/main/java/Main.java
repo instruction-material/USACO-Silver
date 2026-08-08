@@ -1,6 +1,5 @@
 // adapted from USACO
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,7 +17,8 @@ public class Main {
      * @param args Command-line arguments
      */
     public static void main(String[] args) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader in =
+            new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(in.readLine());
         int[][] rankings = new int[n + 1][n + 1];
         for (int cow = 1; cow <= n; cow++) {
@@ -38,7 +38,9 @@ public class Main {
         for (int cow2 = 1; cow2 <= n; cow2++) {
             for (int cow1 = 1; cow1 <= n; cow1++) {
                 for (int cow3 = 1; cow3 <= n; cow3++) {
-                    reachable[cow1][cow3] = reachable[cow1][cow3] || (reachable[cow1][cow2] && reachable[cow2][cow3]);
+                    reachable[cow1][cow3] =
+                        reachable[cow1][cow3] ||
+                        (reachable[cow1][cow2] && reachable[cow2][cow3]);
                 }
             }
         }
@@ -46,7 +48,8 @@ public class Main {
         for (int cow = 1; cow <= n; cow++) {
             int bestGift = 0;
             for (int gift = 1; gift <= n; gift++) {
-                if (rankings[cow][gift] > rankings[cow][bestGift] && reachable[cow][gift]) {
+                if (rankings[cow][gift] > rankings[cow][bestGift] &&
+                    reachable[cow][gift]) {
                     bestGift = gift;
                 }
             }

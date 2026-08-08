@@ -19,7 +19,8 @@ public class Main {
      * @param args Command-line arguments
      */
     public static void main(String[] args) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader in =
+            new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer tokenizer = new StringTokenizer(in.readLine());
 
         int k = Integer.parseInt(tokenizer.nextToken());
@@ -69,18 +70,24 @@ public class Main {
         long[][] valueAdded = new long[3][m + 1];
         for (int j = 0; j < k; j++) {
             // find the next cow in Nhoj's cows list
-            Map.Entry<Integer, Integer> nextNhojCowEntry = nhojCowsTreeMap.ceilingEntry(patches[j].location);
-            int nextNhojCow = nextNhojCowEntry == null ? m : nextNhojCowEntry.getValue();
+            Map.Entry<Integer, Integer> nextNhojCowEntry =
+                nhojCowsTreeMap.ceilingEntry(patches[j].location);
+            int nextNhojCow =
+                nextNhojCowEntry == null ? m : nextNhojCowEntry.getValue();
 
             // calculate values added for one and two cows in the interval
             valueAdded[2][nextNhojCow] += patches[j].tastiness;
             if (nextNhojCow == 0 || nextNhojCow == m) {
                 valueAdded[1][nextNhojCow] += patches[j].tastiness;
             } else {
-                int johnCowLocation = Math.min(nhojCows[nextNhojCow], (2 * patches[j].location) - nhojCows[nextNhojCow - 1]);
+                int johnCowLocation = Math.min(nhojCows[nextNhojCow],
+                                               (2 * patches[j].location) -
+                                                   nhojCows[nextNhojCow - 1]);
                 int extent = (johnCowLocation + nhojCows[nextNhojCow] + 1) / 2;
                 int farthestPatch = patchTreeMap.lowerEntry(extent).getValue();
-                valueAdded[1][nextNhojCow] = Math.max(valueAdded[1][nextNhojCow], tastinessSums[farthestPatch + 1] - tastinessSums[j]);
+                valueAdded[1][nextNhojCow] = Math.max(
+                    valueAdded[1][nextNhojCow],
+                    tastinessSums[farthestPatch + 1] - tastinessSums[j]);
             }
         }
 
@@ -88,13 +95,15 @@ public class Main {
         Long[] valueAddedOverall = new Long[2 * (m + 1)];
         for (int j = 0; j <= m; j++) {
             valueAddedOverall[2 * j] = valueAdded[1][j];
-            valueAddedOverall[(2 * j) + 1] = valueAdded[2][j] - valueAdded[1][j];
+            valueAddedOverall[(2 * j) + 1] =
+                valueAdded[2][j] - valueAdded[1][j];
         }
         Arrays.sort(valueAddedOverall);
 
         // calculate the maximum total tastiness by summing the highest N values
         long answer = 0;
-        for (int j = Math.max(0, valueAddedOverall.length - n); j < valueAddedOverall.length; j++) {
+        for (int j = Math.max(0, valueAddedOverall.length - n);
+             j < valueAddedOverall.length; j++) {
             answer += valueAddedOverall[j];
         }
 

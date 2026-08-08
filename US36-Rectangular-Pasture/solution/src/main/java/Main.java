@@ -11,7 +11,8 @@ public class Main {
     static int[][] sums;
 
     static int getSum(int fromX, int toX, int fromY, int toY) {
-        return sums[toX][toY] - sums[fromX - 1][toY] - sums[toX][fromY - 1] + sums[fromX - 1][fromY - 1];
+        return sums[toX][toY] - sums[fromX - 1][toY] - sums[toX][fromY - 1] +
+            sums[fromX - 1][fromY - 1];
     }
 
     /**
@@ -58,8 +59,10 @@ public class Main {
         long answer = n + 1;
         for (int j = 0; j < n; j++) {
             for (int k = j + 1; k < n; k++) {
-                answer += getSum(Math.min(xs[j], xs[k]), Math.max(xs[j], xs[k]), 1, Math.min(ys[j], ys[k]))
-                        * getSum(Math.min(xs[j], xs[k]), Math.max(xs[j], xs[k]), Math.max(ys[j], ys[k]), n);
+                answer += getSum(Math.min(xs[j], xs[k]), Math.max(xs[j], xs[k]),
+                                 1, Math.min(ys[j], ys[k])) *
+                          getSum(Math.min(xs[j], xs[k]), Math.max(xs[j], xs[k]),
+                                 Math.max(ys[j], ys[k]), n);
             }
         }
         System.out.println(answer);

@@ -16,7 +16,8 @@ public class Main {
      * @param args Command-line arguments
      */
     public static void main(String[] args) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader in =
+            new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer tokenizer = new StringTokenizer(in.readLine());
         int n = Integer.parseInt(tokenizer.nextToken());
         int k = Integer.parseInt(tokenizer.nextToken());

@@ -14,7 +14,8 @@ public class Main {
      * @param args Command-line arguments
      */
     public static void main(String[] args) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader in =
+            new BufferedReader(new InputStreamReader(System.in));
         char[] s = in.readLine().toCharArray();
         char[] t = in.readLine().toCharArray();
         int[] freqsS = new int[26];
@@ -46,7 +47,8 @@ public class Main {
                         tRestricted.append(letter);
                     }
                 }
-                compatible[x - 'a'][y - 'a'] = sRestricted.toString().equals(tRestricted.toString());
+                compatible[x - 'a'][y - 'a'] =
+                    sRestricted.toString().equals(tRestricted.toString());
             }
         }
         StringBuilder out = new StringBuilder();
