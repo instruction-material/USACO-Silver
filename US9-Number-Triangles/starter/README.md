@@ -1,5 +1,3 @@
-# US9 Number Triangles starter
+# Number Triangles learner
 
-This `starter/` directory is intentionally present for wrapper consistency in `USACO-Silver`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Complete `maximumPathSum` in `main.cpp` using the project guide one directory above. The supplied parser and file writer use `numtri.in` and `numtri.out`. Predict the five-row sample's answer before running. The untouched algorithm raises a named TODO and writes no answer. Compare a separate instructor reference only after an independent attempt.
