@@ -77,8 +77,8 @@ Canonical source repository: `USACO-Silver`
 - Active linked folders: 54
 - Archived inactive/support folders: 0
 - Wrapper project folders: 54
-- Placeholder role folders awaiting a distinct counterpart: 45
-- Complete starter/solution pairs with distinct migrated content: 9
-- Active source-like files excluding archive: 164
+- Placeholder role folders awaiting a distinct counterpart: 41
+- Complete starter/solution pairs with distinct source: 13
+- Active source-like files excluding archive: 172
 
 Notes: active source-like files exclude `_archived-unlinked/`. Placeholder role folders are structural markers only; they do not contain assignment source yet.
