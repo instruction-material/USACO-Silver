@@ -97,10 +97,21 @@ class LearnerTaskProbe {
             assert failed_out == b"" and b"error:" in failed_err
             assert not (folder / "answer.new").exists()
             assert (folder / "answer.txt").read_bytes() == prior
+            # A successful compilation can also omit Main.class after a rename.
+            # Recreate an old Main.class, then compile a different entry class.
+            (folder / "Main.java").write_bytes((PACK / role / "Main.java").read_bytes())
+            native.run([args.javac, "--release", "17", "-encoding", "UTF-8", "-Xlint:all", "-Werror", "-d", str(classes), "Main.java"], folder, timeout=30)
+            assert (classes / "Main.class").exists()
+            (folder / "Main.java").write_text("class DifferentMain {}\n")
+            missing_out, missing_err = native.run(["bash", "-c", commands], folder, expected_exit=1, timeout=30)
+            assert missing_out == b"" and b"ClassNotFoundException: Main" in missing_err
+            assert not (classes / "Main.class").exists()
+            assert not (folder / "answer.new").exists()
+            assert (folder / "answer.txt").read_bytes() == prior
         version, error = native.run([args.java, "-version"], workspace)
     for role, digest in source_hashes.items():
         assert hashlib.sha256((PACK / role / "Main.java").read_bytes()).hexdigest() == digest
-    print(json.dumps(dict(event="verified-silver-exam-bank-learner", sourceBaseline=originals["baseline"], runtime=(version + error).decode().strip(), preservedMigrationGuides=2, referenceSourceUnchanged=True, strictJava17Compilation=True, refusalCases=3, documentedNativeGuards=2, failedCompilationGuards=2, referenceMatchesExpected=True, priorAnswerPreserved=True, sourceSha256=source_hashes, temporaryFilesCleaned=True, scope="Source roles only; website imports remain a separate acceptance.")), flush=True)
+    print(json.dumps(dict(event="verified-silver-exam-bank-learner", sourceBaseline=originals["baseline"], runtime=(version + error).decode().strip(), preservedMigrationGuides=2, referenceSourceUnchanged=True, strictJava17Compilation=True, refusalCases=3, documentedNativeGuards=2, failedCompilationGuards=2, missingEntryClassGuards=2, referenceMatchesExpected=True, priorAnswerPreserved=True, sourceSha256=source_hashes, temporaryFilesCleaned=True, scope="Source roles only; website imports remain a separate acceptance.")), flush=True)
 
 
 if __name__ == "__main__":
