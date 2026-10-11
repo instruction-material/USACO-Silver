@@ -1,0 +1,17 @@
+{
+  "baseline": "de7ac589f93fe91a2bb60c728f2a8d36e46bd27f",
+  "files": [
+    {
+      "path": "US4-Exam-and-Bank-Account-Classes/solution/Main.java",
+      "archive": "US4-Exam-and-Bank-Account-Classes/legacy/2026-10-11/Main.java",
+      "sha256": "c1c9ce76dcc69611d25d1e871817614e7070e101e97bf5d3030f674fe7c528b5",
+      "gitBlob": "64265f116ae34fec13db73098de9ebcd8734962f"
+    },
+    {
+      "path": "US10-Prime-Palindromes/solution/Main.java",
+      "archive": "US10-Prime-Palindromes/legacy/2026-10-11/Main.java",
+      "sha256": "5e1d19b3c57af15a049575d917b27e97b95827532b22c8e2d09dab358951ebd5",
+      "gitBlob": "8ba218413fbc4fed0cfe654f84d141011a98343f"
+    }
+  ]
+}
