@@ -16,8 +16,9 @@
   ],
   "reference": {
     "path": "US4-Exam-and-Bank-Account-Classes/solution/Main.java",
-    "sha256": "f9a91c7f2628c222adfb903f705461bc42db46bb55f2f85c7f81163e1b0c744b",
+    "sha256": "2ec38856e44b8d04cd52395df74024da3dc8b0e11cb58c1f30cdcff7831ee9d2",
     "gitBlob": "3f69870dfc55a642c40d32e1fe0398218cfc0fae",
-    "preservedInPlace": true
+    "preservedInPlace": true,
+    "hashAuthority": "Exact stored Git blob; working line endings may differ"
   }
 }

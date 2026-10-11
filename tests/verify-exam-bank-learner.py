@@ -25,9 +25,12 @@ def main():
         assert hashlib.sha256(raw).hexdigest() == row["sha256"]
         assert hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest() == row["gitBlob"]
     reference = originals["reference"]
-    reference_raw = (ROOT / reference["path"]).read_bytes()
+    reference_raw, reference_error = native.run(["git", "show", "HEAD:" + reference["path"]], ROOT)
+    assert reference_error == b""
     assert hashlib.sha256(reference_raw).hexdigest() == reference["sha256"]
     assert hashlib.sha1(b"blob " + str(len(reference_raw)).encode() + b"\0" + reference_raw).hexdigest() == reference["gitBlob"]
+    # Working checkouts can have CRLF; compare their text to the exact accepted Git blob.
+    assert (ROOT / reference["path"]).read_text() == reference_raw.decode().replace("\r\n", "\n")
     expected = (PACK / "solution/sample.expected").read_bytes()
     assert (PACK / "starter/sample.expected").read_bytes() == expected
     source_hashes = {role: hashlib.sha256((PACK / role / "Main.java").read_bytes()).hexdigest() for role in ["starter", "solution"]}
