@@ -139,6 +139,9 @@ class pprime {
     }
 
     public static boolean isPrime(int num) {
+        if (num < 2) { // ADDED: 0, 1 and negative integers are not prime.
+            return false;
+        }
         // check divisors up to sqrt(num)
 
         for (int i = 2; i <= Math.sqrt(num); i++) {

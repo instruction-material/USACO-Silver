@@ -26,3 +26,4 @@ jobs:
           task_java_home="${!task_java_home_name}"
           "$task_java_home/bin/java" -version
           python3 tests/verify-required-java-packs.py --java "$task_java_home/bin/java" --javac "$task_java_home/bin/javac"
+          python3 tests/verify-reference-helpers.py --java "$task_java_home/bin/java" --javac "$task_java_home/bin/javac"

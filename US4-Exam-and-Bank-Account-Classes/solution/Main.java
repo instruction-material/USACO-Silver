@@ -33,7 +33,7 @@ class Main {
 
         Arrays.sort(arrayBankAccounts, (BankAccount b1, BankAccount b2) -> {
             if (b1.balance != b2.balance) {
-                return b2.balance - b1.balance;
+                return Integer.compare(b2.balance, b1.balance); // CHANGED: avoid overflow.
             } else {
                 return b1.name.compareTo(b2.name);
             }
@@ -54,7 +54,7 @@ class Exam implements Comparable<Exam> {
 
     public int compareTo(Exam other) {
         if (score != other.score) {
-            return score - other.score;
+            return Integer.compare(score, other.score); // CHANGED: avoid overflow.
         } else {
             return name.compareTo(other.name);
         }
