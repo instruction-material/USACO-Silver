@@ -1,0 +1,2 @@
+# Preserve archived original Git blob bytes across CRLF/LF checkouts.
+**/legacy/2026-10-11/* -text
