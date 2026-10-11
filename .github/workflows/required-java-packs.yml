@@ -28,3 +28,4 @@ jobs:
           python3 tests/verify-required-java-packs.py --java "$task_java_home/bin/java" --javac "$task_java_home/bin/javac"
           python3 tests/verify-reference-helpers.py --java "$task_java_home/bin/java" --javac "$task_java_home/bin/javac"
           python3 tests/verify-exam-bank-learner.py --java "$task_java_home/bin/java" --javac "$task_java_home/bin/javac"
+          python3 tests/verify-required-search-learners.py --java "$task_java_home/bin/java" --javac "$task_java_home/bin/javac"

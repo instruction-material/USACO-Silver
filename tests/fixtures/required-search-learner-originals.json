@@ -1,0 +1,36 @@
+{
+  "base": "57fbe814231945817888f79d07ec0538d0ab86ac",
+  "byteAuthority": "Canonical stored Git blobs, with worktree CRLF normalization accounted for separately.",
+  "files": [
+    {
+      "original": "US6-Mothers-Milk/README.md",
+      "archive": "US6-Mothers-Milk/legacy/2026-10-11/migration-README.md",
+      "sha256": "1ac5dc646a90f757a3b2eda43dbc6d9240349c9d9a51a2927006667ba3787671"
+    },
+    {
+      "original": "US6-Mothers-Milk/starter/README.md",
+      "archive": "US6-Mothers-Milk/legacy/2026-10-11/starter-migration-README.md",
+      "sha256": "0faf5a1c13953a0545fa725226a7e594c4eddf6d6b29c88edf8085c733e80ad5"
+    },
+    {
+      "original": "US6-Mothers-Milk/solution/Main.java",
+      "unchanged": "US6-Mothers-Milk/solution/Main.java",
+      "sha256": "7797f94708c11680968a01961ac67fbf34afae2bd112eb6e73f9ee51a72c31f8"
+    },
+    {
+      "original": "US10-Prime-Palindromes/README.md",
+      "archive": "US10-Prime-Palindromes/legacy/2026-10-11/migration-README.md",
+      "sha256": "e772fa2992466e3c9403f316f8dc23278d90825d3654afcb613a9933f74e2968"
+    },
+    {
+      "original": "US10-Prime-Palindromes/starter/README.md",
+      "archive": "US10-Prime-Palindromes/legacy/2026-10-11/starter-migration-README.md",
+      "sha256": "cd70a06549294b41b15dcd726394adfa947eb6c78a6f8182909b26eefcc4c2e9"
+    },
+    {
+      "original": "US10-Prime-Palindromes/solution/Main.java",
+      "unchanged": "US10-Prime-Palindromes/solution/Main.java",
+      "sha256": "9f6099dbfbd0ca9238467538f5381f7814762db19c0861be8fdc2d21a4260028"
+    }
+  ]
+}
