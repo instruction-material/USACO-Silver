@@ -1,0 +1,24 @@
+{
+  "baseline": "1ea388be290153b8a08e1bc47966886e17ae6c80",
+  "files": [
+    {
+      "path": "US4-Exam-and-Bank-Account-Classes/README.md",
+      "archive": "US4-Exam-and-Bank-Account-Classes/legacy/2026-10-11/migration-README.md",
+      "sha256": "83e289dd11b35bf3c52899217cfa7b86937324db8a9d925ec92cf208c0bc4ea1",
+      "gitBlob": "e6816d030e22dab602d9a006441c50d1ab945d28"
+    },
+    {
+      "path": "US4-Exam-and-Bank-Account-Classes/starter/README.md",
+      "archive": "US4-Exam-and-Bank-Account-Classes/legacy/2026-10-11/starter-migration-README.md",
+      "sha256": "779b0e74004bdf3c4398a59c4c2f37587577b5e07e3968a8802263b28c43bf32",
+      "gitBlob": "3aca49883ebb0b44d3e36d703e82dffc43623117"
+    }
+  ],
+  "reference": {
+    "path": "US4-Exam-and-Bank-Account-Classes/solution/Main.java",
+    "sha256": "2ec38856e44b8d04cd52395df74024da3dc8b0e11cb58c1f30cdcff7831ee9d2",
+    "gitBlob": "3f69870dfc55a642c40d32e1fe0398218cfc0fae",
+    "preservedInPlace": true,
+    "hashAuthority": "Exact stored Git blob; working line endings may differ"
+  }
+}
