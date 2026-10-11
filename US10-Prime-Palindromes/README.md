@@ -1,10 +1,54 @@
-# US10 Prime Palindromes
+# Prime Palindromes
 
-Canonical source repository: `USACO-Silver`
+This pack contains a separate unfinished `starter/` and the unchanged historical program in `solution/`. Each role includes its full contract, worked example, tasks, independent checks, input, expected output and native commands. Original migration guides are retained in `legacy/2026-10-11/`.
 
-This project was migrated from the legacy direct-source layout on 2026-05-14. The original files are preserved under `solution/` as the current solution/reference snapshot.
+Work in one role folder; do not combine their classes. Compile `Main.java` with Java 17 targeting and run `pprime`. Native execution reads `pprime.in` and writes `pprime.out`. A downloaded role is standalone.
 
-## Structure
+## Contract and candidate structure
 
-- `solution/` contains the migrated source files.
-- `starter/` is present to keep the course wrapper shape consistent; add a distinct starter snapshot there when one is available.
+Read two integer bounds from `pprime.in`, with `5 <= lower <= upper <= 100000000`. Print every prime decimal palindrome in the inclusive interval, in increasing order, one number per line in `pprime.out`. An empty result is an empty output file. A prime is an integer at least 2 with no divisor other than 1 and itself; a decimal palindrome has the same digits in reverse order, without leading zeroes.
+
+The preserved reference generates candidates with one through eight digits and an odd leading digit, then filters by the bounds and primality. These are odd-valued palindromes, not only odd-length palindromes. Every relevant prime is odd because the interval starts at 5. The only nine-digit value permitted by the upper bound is 100000000, which is not a palindrome. Thus these candidates cover the whole legal interval. The historical training statement is an additional account-dependent resource; this guide includes the complete working contract independently.
+
+For `generatePalindromes(digits)`, where digits is in 1..8, return every odd-valued palindrome with exactly that many digits, once each and in increasing order. Include candidates such as 1 and 99 even though they are not prime; the separate filter handles primality and the requested interval. A digit-length call outside 1..8 is outside this helper contract.
+
+## Worked example and predictions
+
+The included `pprime.in` is `5 500`. Its exact output is:
+
+```text
+5
+7
+11
+101
+131
+151
+181
+191
+313
+353
+373
+383
+```
+
+For three digits, seed 13 mirrors to 131 by appending the first digit; for four digits, seed 13 mirrors to 1331 by appending both seed digits in reverse. Do not duplicate the middle digit of an odd-length palindrome. A seed cannot start with zero, and an even leading digit produces an even palindrome that cannot be a prime in this interval.
+
+Predict these inclusive boundary cases before running: `5 5` gives 5; `11 11` gives 11; `12 100` gives an empty file. Although every even-length decimal palindrome is divisible by 11, 11 itself is prime. The learner helper contract still asks for all odd-valued candidates at each length; filtering or an explicitly changed extension may apply that observation afterward.
+
+## Implementation tasks
+
+1. Complete the separate learner's `pprime.generatePalindromes(int digits)`. Choose nested digit loops or enumerate valid half-seeds and mirror them. Keep exactly the requested digit length.
+2. For odd lengths, mirror all seed digits except the middle one. For even lengths, mirror the whole seed. Preserve zeroes inside the number; forbid a leading zero.
+3. Generate candidates in increasing order and without duplicates. The supplied driver visits increasing digit lengths, so its combined candidate order is also increasing.
+4. Retain the supplied `isPrime` helper and inclusive bound checks. The helper correctly rejects 0, 1 and negative integers. It tests divisors through the square root; it is not a palindrome generator.
+5. Explain why candidate generation avoids checking every integer up to one hundred million. For length d there are `5 * 10^(ceil(d/2)-1)` candidates under this contract; the eight calls produce 11110 candidates in total.
+
+The untouched learner throws `TASK: palindrome generation`, exits 2 and never opens `pprime.out`. The reference generator and accepted primality helper remain unchanged. The driver cannot prove that a returned candidate list is exhaustive, so the checks below are required.
+
+## Independent checks and walkthrough
+
+For small intervals, enumerate every integer independently, reverse its decimal digits, and test divisibility. Compare the full ordered result, including empty intervals and both endpoints. For each helper length check the candidate count, exact digit length, odd value, decimal symmetry, distinctness and increasing order. At small lengths, compare against direct enumeration rather than another copy of the generator.
+
+Check a range crossing a digit-length boundary, 11, repeated middle zeroes, prime squares such as 121, and the largest allowed interval. Use a separately generated candidate set and independently computed prime divisors for the full interval. Distinguish a missing candidate from a wrong primality result before changing the code.
+
+For an instructor walkthrough, pause after the interval prediction, build one odd-length and one even-length mirror, check 11, then implement and run. The same steps are a standalone reading sequence. Optional practice can compare the historical nested-loop generator with a half-seed generator, or use a prime-divisor table; retain the same interval and output contract when comparing them. This is structured candidate search; binary search, two pointers and coordinate compression need separate activities if assigned in the surrounding unit.
