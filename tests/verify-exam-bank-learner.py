@@ -83,15 +83,24 @@ class LearnerTaskProbe {
             (folder / "sample.expected").write_bytes(expected)
             guide = (PACK / role / "README.md").read_text()
             commands = guide.split("```sh\n", 1)[1].split("```", 1)[0]
-            commands = commands.replace("\njavac ", "\n" + shlex.quote(args.javac) + " ")
-            commands = commands.replace("if java ", "if " + shlex.quote(args.java) + " ")
+            assert commands.count("javac --release ") == commands.count("java -cp ") == 1
+            commands = commands.replace("javac --release ", shlex.quote(args.javac) + " --release ")
+            commands = commands.replace("java -cp ", shlex.quote(args.java) + " -cp ")
             native.run(["bash", "-c", commands], folder, expected_exit=2 if role == "starter" else 0, timeout=30)
             assert not (folder / "answer.new").exists()
             assert (folder / "answer.txt").read_bytes() == (prior if role == "starter" else expected)
+            # Leave compiled classes present, then break the current source.
+            # The printed command must fail before an older build can replace an answer.
+            (folder / "Main.java").write_text("class Main { invalid source\n")
+            (folder / "answer.txt").write_bytes(prior)
+            failed_out, failed_err = native.run(["bash", "-c", commands], folder, expected_exit=1, timeout=30)
+            assert failed_out == b"" and b"error:" in failed_err
+            assert not (folder / "answer.new").exists()
+            assert (folder / "answer.txt").read_bytes() == prior
         version, error = native.run([args.java, "-version"], workspace)
     for role, digest in source_hashes.items():
         assert hashlib.sha256((PACK / role / "Main.java").read_bytes()).hexdigest() == digest
-    print(json.dumps(dict(event="verified-silver-exam-bank-learner", sourceBaseline=originals["baseline"], runtime=(version + error).decode().strip(), preservedMigrationGuides=2, referenceSourceUnchanged=True, strictJava17Compilation=True, refusalCases=3, documentedNativeGuards=2, referenceMatchesExpected=True, priorAnswerPreserved=True, sourceSha256=source_hashes, temporaryFilesCleaned=True, scope="Source roles only; website imports remain a separate acceptance.")), flush=True)
+    print(json.dumps(dict(event="verified-silver-exam-bank-learner", sourceBaseline=originals["baseline"], runtime=(version + error).decode().strip(), preservedMigrationGuides=2, referenceSourceUnchanged=True, strictJava17Compilation=True, refusalCases=3, documentedNativeGuards=2, failedCompilationGuards=2, referenceMatchesExpected=True, priorAnswerPreserved=True, sourceSha256=source_hashes, temporaryFilesCleaned=True, scope="Source roles only; website imports remain a separate acceptance.")), flush=True)
 
 
 if __name__ == "__main__":

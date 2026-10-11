@@ -41,8 +41,9 @@ Use JDK 17 or newer. Run from the extracted role folder containing this README, 
 
 ```sh
 mkdir -p target/classes
-javac --release 17 -encoding UTF-8 -Xlint:all -Werror -d target/classes Main.java
-if java -cp target/classes Main > answer.new && diff -u sample.expected answer.new; then
+if javac --release 17 -encoding UTF-8 -Xlint:all -Werror -d target/classes Main.java \
+    && java -cp target/classes Main > answer.new \
+    && diff -u sample.expected answer.new; then
     mv answer.new answer.txt
 else
     status=$?
@@ -51,7 +52,7 @@ else
 fi
 ```
 
-The guard replaces answer.txt only after successful execution and an exact match. An unfinished learner exits 2; a mismatch exits nonzero. Either preserves an earlier answer.txt. After changing demonstration data, predict and prepare a separate expected file rather than overwriting the supplied sample oracle. Keep compiled classes separate between roles so a previous reference build cannot accidentally run as a learner.
+The guard requires a successful current-source compilation before execution and replaces answer.txt only after successful execution and an exact match. An unfinished learner exits 2; a mismatch exits nonzero. Either preserves an earlier answer.txt. After changing demonstration data, predict and prepare a separate expected file rather than overwriting the supplied sample oracle. Keep compiled classes separate between roles so a previous reference build cannot accidentally run as a learner.
 
 ## Preserved source
 
