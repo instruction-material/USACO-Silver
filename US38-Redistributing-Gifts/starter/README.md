@@ -1,5 +1,5 @@
-# US38 Redistributing Gifts starter
+# Learner pack
 
-This `starter/` directory is intentionally present for wrapper consistency in `USACO-Silver`.
+Complete reachability and bestGifts in src/main/java/Main.java. Input is stdin; answers are stdout. Repeated best gift IDs are legal. Use the guarded temporary-output command in the parent guide to preserve an earlier answer.
 
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Read the [complete assignment guide](../README.md) for contracts, predictions, tasks, independent checks and Java 17+ native commands. The untouched learner exits 2 and produces no answer. Preserve the attempt before comparing the separate reference. Input/output guards do not grade the algorithm.

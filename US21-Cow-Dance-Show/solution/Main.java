@@ -26,7 +26,7 @@ class Main {
 
         br.close();
 
-        // binary search between 1 and N to find the max possible value of K
+        // binary search between 1 and N to find the minimum feasible value of K
         int min = 1;
         int max = N;
         while (min < max) {
@@ -49,7 +49,7 @@ class Main {
 
     // returns true if having K cows on the stage at a time will allow the cows to finish dancing before tmax
     public static boolean canFinishDance(int[] durations, int k, int tmax) {
-        // priority queues are queues where the elements are inserted with some ordering. takes O(logn) time for insertion and O(1) time for polling
+        // The min-heap stores finish times; insertion and polling each take O(log K) time.
         PriorityQueue<Integer> activeDancers = new PriorityQueue<Integer>();
 
         // put the first k cows on stage

@@ -1,0 +1,65 @@
+{
+  "baseline": "dc00f0e6aa18cafe2903fc55a8d8ac29d73fb599",
+  "files": [
+    {
+      "path": "US25-Why-Did-the-Cow-Cross-the-Road-II/README.md",
+      "archive": "US25-Why-Did-the-Cow-Cross-the-Road-II/legacy/2026-10-11/README.md",
+      "sha256": "79b63e32470d1fb6252aada1bf13aaede636e4b7dc95c2740b2f89f708cc5b1e",
+      "gitBlob": "efc78c432fdaaf31f6bff89279e920b22bb9a825"
+    },
+    {
+      "path": "US25-Why-Did-the-Cow-Cross-the-Road-II/starter/README.md",
+      "archive": "US25-Why-Did-the-Cow-Cross-the-Road-II/legacy/2026-10-11/starter-README.md",
+      "sha256": "da5c0a4f5ff52a22594e01fda573d0568aef1114f29fd246c6f29bf7f3788897",
+      "gitBlob": "11a00b8ea0488478c81bb1c2bc35854133990393"
+    },
+    {
+      "path": "US25-Why-Did-the-Cow-Cross-the-Road-II/solution/Main.java",
+      "archive": "US25-Why-Did-the-Cow-Cross-the-Road-II/legacy/2026-10-11/reference.java.txt",
+      "sha256": "09f972f17a787809ed7a9d18aee7dcedb4e9ad114e3e5af390629b6dde5f87fb",
+      "gitBlob": "c749e639397d849a3998c5b3cd7c03d5961d5214"
+    },
+    {
+      "path": "US21-Cow-Dance-Show/README.md",
+      "archive": "US21-Cow-Dance-Show/legacy/2026-10-11/README.md",
+      "sha256": "412d767002dda6901f114aaa0524081fa79832261543d6d2ec0d0cde3d00a7c3",
+      "gitBlob": "64e61ba3d9accea404b9795152900ef0ad7d1374"
+    },
+    {
+      "path": "US21-Cow-Dance-Show/starter/README.md",
+      "archive": "US21-Cow-Dance-Show/legacy/2026-10-11/starter-README.md",
+      "sha256": "b237aaa84677b42bfb826c0bbb5cc5a6fac4e0ad7f2cb64a1bf8512c14fdeeeb",
+      "gitBlob": "fbf21cdfac1f838e31d116183dc85bd711dfafca"
+    },
+    {
+      "path": "US21-Cow-Dance-Show/solution/Main.java",
+      "archive": "US21-Cow-Dance-Show/legacy/2026-10-11/reference.java.txt",
+      "sha256": "e5c4c66624ff98371b803132fae16bf1124fea3b1ca02ead31a610cf6c5ca353",
+      "gitBlob": "f87d6a382e7e12f81affdd892a17ab3c40b16c66"
+    },
+    {
+      "path": "US38-Redistributing-Gifts/README.md",
+      "archive": "US38-Redistributing-Gifts/legacy/2026-10-11/README.md",
+      "sha256": "741dd1d51d8e95c3b316a64e97d5e086408984ebce88e4aa43540b62d0e5cf81",
+      "gitBlob": "9523db7cd244c325a618f49a8675176a74a52744"
+    },
+    {
+      "path": "US38-Redistributing-Gifts/starter/README.md",
+      "archive": "US38-Redistributing-Gifts/legacy/2026-10-11/starter-README.md",
+      "sha256": "6457ff0eac4a4f502ace136b595a97bac6c4f0f9eb1aa7fa8f168bd1f02d2008",
+      "gitBlob": "a3922b29985fa3fbc6518cddd7a714ebf15644d5"
+    },
+    {
+      "path": "US38-Redistributing-Gifts/solution/src/main/java/Main.java",
+      "archive": "US38-Redistributing-Gifts/legacy/2026-10-11/reference.java.txt",
+      "sha256": "e32899c42d1c6707daf988c482bbaed01cdf509fb6463b8145612a4d7e709f10",
+      "gitBlob": "e1602ee1ac10b10135a96202a8fc84ad72945fd1"
+    },
+    {
+      "path": "US38-Redistributing-Gifts/solution/pom.xml",
+      "archive": "US38-Redistributing-Gifts/legacy/2026-10-11/pom.xml.txt",
+      "sha256": "151ec1245109a1377f957695f2177a18c6c7f1e68ea1aa57c0486c31c9272600",
+      "gitBlob": "319ded89fdf60109a5e494ffd05b4d0b65b03638"
+    }
+  ]
+}
